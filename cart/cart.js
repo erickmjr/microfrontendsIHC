@@ -3,7 +3,7 @@ let items = [];
 export function render(container) {
     container.innerHTML = `
         <div id="cart-icon">
-            <img src="/cart/images/cart.png" alt="Carrinho">
+            <img src="http://localhost:3002/images/cart.png" alt="Carrinho">
         </div>
         <div id="cart-modal">
             <div>
@@ -29,15 +29,19 @@ export function render(container) {
                 return acc;
             }, {});
 
+            let valorTotal = 0;
             const lista = Object.entries(contagem).map(([title, info]) => {
+                valorTotal += info.price * info.qtd;
                 return `<li>${title} - R$${Number(info.price).toFixed(2)} x ${info.qtd}</li>`;
             }).join("");
+
 
             modalContent.innerHTML = `
                 <h2>Carrinho</h2>
                 <ul>
                     ${lista}
                 </ul>
+                <p><b>Valor total:</b> ${valorTotal.toFixed(2)}</p>
             `;
         }
     }
