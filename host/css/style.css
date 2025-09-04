@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  list-style-type: none;
+}
+
+body {
+  background-color: #F3F1ED;
+}
+
+header {
+  background-color: #FECF00;
+  padding: 3dvh;
+  color: #380955;
+}
+header h1 {
+  font-weight: 500;
+  font-style: italic;
+  display: flex;
+  justify-content: left;
+  gap: 3dvw;
+  align-items: center;
+}
+
+.produtos {
+  background-color: #F3F1ED;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3dvh;
+  gap: 2.5dvh;
+}
+.produtos #product-list {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1dvh;
+}
+.produtos .itemsList__item {
+  background-color: #A79DDA;
+  padding: 1dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  border-radius: 8px;
+}
+.produtos .itemsList__item__container {
+  display: flex;
+  gap: 2dvh;
+  align-items: center;
+}
+.produtos .itemsList__item__container .item__image img {
+  width: 80px;
+  height: 80px;
+}
+.produtos .itemsList__item__container .item__infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.produtos .itemsList__item button {
+  width: fit-content;
+}
+
+/*# sourceMappingURL=style.css.map */
