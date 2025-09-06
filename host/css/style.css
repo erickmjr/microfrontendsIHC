@@ -33,11 +33,8 @@ header h1 {
 }
 
 .produtos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 3dvh;
-  gap: 2.5dvh;
+  text-align: left;
 }
 .produtos #product-list {
   margin: auto;

@@ -16,7 +16,6 @@ app.get('/api/products', async (req, res) => {
         const data = await response.json();
         res.json(data);
     } catch (error) {
-        console.error('Erro no proxy:', error);
         res.status(500).json({ error: 'Erro ao buscar produtos' });
     }
 });
