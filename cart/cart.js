@@ -40,7 +40,7 @@ export function render(container) {
             const lista = items.map(produto => {
                 valorTotal += produto.price * produto.qtd;
                 return `
-                    <li class='item__carrinho'><div>${produto.title} - R$${Number(produto.price).toFixed(2)} <b>x ${produto.qtd}</b></div> <button type="button"><img src="http://localhost:3002/images/trash.svg"></img></button>
+                    <li class='item__carrinho'><div>${produto.title} - R$${Number(produto.price).toFixed(2)} <b>x ${produto.qtd}</b></div> <button type="button" class="remove-item" data-title="${produto.title}"><img src="http://localhost:3002/images/trash.svg"></img></button>
                     </li>
                 `;
             })
@@ -52,6 +52,17 @@ export function render(container) {
                 </ul>
                 <p><b>Valor total:</b> ${valorTotal.toFixed(2)}</p>
             `;
+
+            modalContent.querySelectorAll(".remove-item").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const title = btn.getAttribute("data-title");
+                    const idx = items.findIndex(item => item.title === title);
+                    if (idx !== -1) {
+                        items.splice(idx, 1);
+                        updateCartModal();
+                    }
+                });
+            });
         }
     }
 
