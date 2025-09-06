@@ -1,5 +1,4 @@
 let items = [];
-
 export function render(container) {
     container.innerHTML = `
         <div id="cart-icon">
@@ -32,7 +31,8 @@ export function render(container) {
             let valorTotal = 0;
             const lista = Object.entries(contagem).map(([title, info]) => {
                 valorTotal += info.price * info.qtd;
-                return `<li>${title} - R$${Number(info.price).toFixed(2)} x ${info.qtd}</li>`;
+                return `<li class='item__carrinho'><div>${title} - R$${Number(info.price).toFixed(2)} <b>x ${info.qtd}</b></div> <button type="button"><img src="http://localhost:3002/images/trash.svg"></img></button>
+                </li>`;
             }).join("");
 
 
@@ -57,6 +57,7 @@ export function render(container) {
 
     window.addEventListener("add-to-cart", (e) => {
         items.push(e.detail);
+        
         updateCartModal();
     });
 }
