@@ -29,9 +29,13 @@ export function render(container) {
             }, {});
 
             let valorTotal = 0;
-            const lista = Object.entries(contagem).map(([title, info]) => {
+            const lista = Object.entries(contagem).map(([title, info], idx) => {
                 valorTotal += info.price * info.qtd;
-                return `<li class='item__carrinho'><div>${title} - R$${Number(info.price).toFixed(2)} <b>x ${info.qtd}</b></div> <button type="button"><img src="http://localhost:3002/images/trash.svg"></img></button>
+                return `<li class='item__carrinho'>
+                    <div>${title} - R$${Number(info.price).toFixed(2)} <b>x ${info.qtd}</b></div>
+                    <button type="button" class="remove-item" data-title="${title}">
+                        <img src="http://localhost:3002/images/trash.svg"></img>
+                    </button>
                 </li>`;
             }).join("");
 
@@ -43,6 +47,17 @@ export function render(container) {
                 </ul>
                 <p><b>Valor total:</b> ${valorTotal.toFixed(2)}</p>
             `;
+
+            modalContent.querySelectorAll(".remove-item").forEach(btn => {
+                btn.addEventListener("click", (e) => {
+                    const title = btn.getAttribute("data-title");
+                    const idx = items.findIndex(item => item.title === title);
+                    if (idx !== -1) {
+                        items.splice(idx, 1);
+                        updateCartModal();
+                    }
+                });
+            });
         }
     }
 
