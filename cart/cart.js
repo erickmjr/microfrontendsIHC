@@ -39,11 +39,9 @@ export function render(container) {
 
             const lista = items.map(produto => {
                 valorTotal += produto.price * produto.qtd;
-                return `
-                    <li class='item__carrinho'><div>${produto.title} - R$${Number(produto.price).toFixed(2)} <b>x ${produto.qtd}</b></div> <button type="button" class="remove-item" data-title="${produto.title}"><img src="http://localhost:3002/images/trash.svg"></img></button>
-                    </li>
-                `;
-            })
+                return `<li class='item__carrinho'><div>${produto.title} - R$${Number(produto.price).toFixed(2)} <b>x ${produto.qtd}</b></div> <button type="button" class="remove-item" data-title="${produto.title}"><img src="http://localhost:3002/images/trash.svg"></img></button>
+                    </li>`;
+            }).join("");
 
             modalContent.innerHTML = `
                 <h2>Carrinho</h2>

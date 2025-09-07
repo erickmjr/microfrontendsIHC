@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname)));
 
 app.get('/api/products', async (req, res) => {
     try {
-        const response = await fetch('https://fakestoreapi.com/products?limit=5');
+        const response = await fetch('https://fakestoreapi.com/products?limit=8');
         if (!response.ok) {
             console.error('Erro ao buscar da API:', response.status, await response.text());
             return res.status(500).json({ error: 'Erro ao buscar produtos da API externa' });
