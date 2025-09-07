@@ -126,6 +126,8 @@ header h1 {
   padding: 2em;
   position: relative;
   border-radius: 8px;
+  max-height: 75dvh;
+  overflow-y: scroll;
 }
 #cart-modal > div ul {
   display: flex;
